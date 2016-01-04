@@ -4,16 +4,16 @@ Plugins are organized by section and ordered alphabetically.
 
 ## Table of Contents
 
-	1. [Learning Vim](#learning-vim)
-	2. [Plugin Management](#plugin-management)
-	3. [Colors](#colors)
-	4. [Tools](#tools)
-	5. [Language Specific](#language-specific)
-	6. [Framework Specific](#framework-specific)
-	7. [Distributions](#distributions)
-	8. [Websites](#websites)
- 	9. [Contributing](#contributing)
-	10. [License](#license)
+1. [Learning Vim](#learning-vim)
+2. [Plugin Management](#plugin-management)
+3. [Colors](#colors)
+4. [Tools](#tools)
+5. [Language Specific](#language-specific)
+6. [Framework Specific](#framework-specific)
+7. [Distributions](#distributions)
+8. [Websites](#websites)
+9. [Contributing](#contributing)
+10. [License](#license)
 
 
 ## Learning Vim
