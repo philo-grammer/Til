@@ -2,7 +2,6 @@
 
 Plugins are organized by section and ordered alphabetically.
 
-
 ## Table of Contents
 
 1. [Learning Vim](#learning-vim)
