@@ -65,3 +65,21 @@ $ git config user.name
 philo-grammer
 ```
 
+---
+
+## 도움말
+
+명령어에 대한 도움말이 필요할 때 도움말을 보는 방법은 세 가지다.명령어에 대한 도움말이 필요할 때 도움말을 보는 방법은 세 가지다.
+
+```
+$ git help <verb>
+$ git <verb> --help
+$ git man git-<verb>
+```
+
+예를 들어 다음과 같이 실행하면 config 명령에 대한 도움말을 볼 수 있다
+
+```
+$ git help config
+```
+
