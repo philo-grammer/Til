@@ -65,7 +65,6 @@ $ git config user.name
 philo-grammer
 ```
 
----
 
 ## 도움말
 
