@@ -3,9 +3,7 @@
 워킹 디렉터리의 모든 파일은 크게 Tracked(관리대상임)와 Untracked(관리대상이아님)로 나눈다.
 Tracked 파일은 이미 스냅샷에 포함돼 있던 파일이다. Tracked 파일은 또 Unmodified(수정하지 않음)와 Modified(수정함) 그리고 Staged(커밋하면 저장소에 기록되는) 상태 중 하나이다.
 
---
 ![File Status Lifecycle](http://git-scm.com/figures/18333fig0201-tn.png)
---
 
 처음 저장소를 Clone하면 모든 파일은 Tracked이면서 Unmodified 상태가 된다. 
 파일을 Checkout하고 나서 아무것도 수정하지 않았기 때문에 그렇다.
