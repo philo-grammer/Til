@@ -37,3 +37,27 @@ nothing added to commit but untracked files present (use "git add" to track)
 Git은 Untracked 파일을 아직 스냅샷(커밋)에 넣어지지 않은 파일이라고 본다. 파일이 Tracked 상태가 되기 전까지는 Git은 절대 그 파일을 커밋하지 않는다. 그래서 일하면서 생성하는 바이너리 파일 같은 것을 커밋하는 실수는 하지 않게 된다. README 파일을 추가해서 직접 Tracked 상태로 만들어보자.
 
 
+#### 파일을 새로 추적하기
+
+git add 명령을 실행하면 Git은 README 파일을 추적한다.
+
+```
+$ git add README
+```
+
+git status 명령을 다시 실행하면 README 파일이 Tracked 상태이면서 Staged 상태라는 것을 확인할 수 있다.
+
+```
+$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#   new file:  README
+#
+```
+
+'Changes to be committed'에 있는 파일은 Staged 상태라는 것을 의미한다. 커밋하면 git add를 실행한 시점의 파일이 저장소 히스토리에 저장된다.
+앞에서 git init 명령을 실행했을 때 바로 git add (files) 명령을 실행했었다. 이 명령은 워킹 디렉터리에 있는 파일을 새로 추적하게 한다. 
+
+
