@@ -61,3 +61,19 @@ $ git status
 앞에서 git init 명령을 실행했을 때 바로 git add (files) 명령을 실행했었다. 이 명령은 워킹 디렉터리에 있는 파일을 새로 추적하게 한다. 
 
 
+#### Modified 상태의 파일을 Stage하기
+
+이미 Tracked 상태인 파일을 수정하는 법을 알아보자. benchmarks.rb라는 파일을 수정하고 나서 git status 명령을 다시 실행하면 결과는 다음과 같다.
+
+$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#   new file:   README
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#
+#   modified:  benchmarks.rb
+#
+
