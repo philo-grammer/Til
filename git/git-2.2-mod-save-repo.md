@@ -77,3 +77,52 @@ $ git status
 #   modified:  benchmarks.rb
 #
 
+위 benchmarks.rb 파일은 Tracked 상태이지만 아직 Staged 상태는 아니라는 것이다. *Staged 상태로 만들려면 git add 명령을 실행해야 한다.* git add는 파일을 새로 추적할 때도 사용하고 수정한 파일을 Staged 상태로 만들 때도 사용한다. git add를 실행하여 benchmarks.rb 파일을 Staged 상태로 만들고 git status 명령을 결과를 확인해보자.
+
+```
+$ git add benchmarks.rb
+$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#   new file: README
+#   modified: benchmarks.rb
+#
+```
+
+위의 Staged 상태에서 benchmarks.rb 파일을 더 수정한다면, Git은 아직 커밋할 준비가 아닌 상태이다. 더 수정한 후 다시 git status 명령으로 상태를 확인해보자.
+
+```
+$ vim benchmarks.rb
+$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#   new file: README
+#   modified: benchmarks.rb
+#
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#
+#   modified: benchmarks.rb
+#
+```
+
+benchmarks.rb가 Staged 상태이면서 동시에 Unstaged 상태로 나온다. git add 명령을 실행하면 Git은 파일을 바로 Staged 상태로 만든다. 지금 이 시점에서 커밋을 하면 git commit 명령을 실행하는 시점의 버전이 커밋되는 것이 아니라 마지막으로 git add 명령을 실행했을 때의 버전이 커밋된다. 즉, *git add 명령을 실행한 후에 또 파일을 수정하면 git add 명령을 다시 실행해서 최신 버전을 Staged 상태로 만들어야 한다.*
+
+```
+$ git add benchmarks.rb
+$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#   new file: README
+#   modified: benchmarks.rb
+#
+```
+
+
+
