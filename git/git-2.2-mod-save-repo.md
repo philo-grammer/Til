@@ -145,7 +145,7 @@ $ cat .gitignore
 * 디렉터리는 슬래시(/)를 끝에 사용하는 것으로 표현한다.
 * 느낌표(!)로 시작하는 패턴의 파일은 무시하지 않는다.
 
-Glob 패턴은 정규표현식을 단순하게 만든 것으로 생각하면 되고 보통 셸에서 많이 사용한다. 애스터리스크(*)는 문자가 하나도 없거나 하나 이상을 의미하고, [abc]는 중괄호 안에 있는 문자 중 하나를 의미한다(그런니까 이 경우에는 a, b, c). 물음표(?)는 문자 하나를 말하고, [0-9]처럼 중괄호 안의 캐릭터 사이에 하이픈(-)을 사용하면 그 캐릭터 사이에 있는 문자 하나를 말한다.
+Glob 패턴은 정규표현식을 단순하게 만든 것으로 생각하면 되고 보통 셸에서 많이 사용한다. 애스터리스크(\*)는 문자가 하나도 없거나 하나 이상을 의미하고, [abc]는 중괄호 안에 있는 문자 중 하나를 의미한다(그런니까 이 경우에는 a, b, c). 물음표(?)는 문자 하나를 말하고, [0-9]처럼 중괄호 안의 캐릭터 사이에 하이픈(-)을 사용하면 그 캐릭터 사이에 있는 문자 하나를 말한다.
 다음은 .gitignore 파일의 예이다.
 
 ```
@@ -159,4 +159,102 @@ doc/*.txt     # 같은 파일은 무시하지 않는다.
 ```
 
 
+#### Staged와 Unstaged 상태의 변경 내용을 보기
+
+어떤 내용이 변경됐는지 살펴보기엔 git status 명령이 아니라 git diff 명령을 사용해야 한다.
+
+README 파일을 수정해서 Staged 상태로 만들고 benchmarks.rb 파일은 그냥 수정만 해둔다. 이 상태에서 git status 명령을 실행하면 다음과 같은 메시지를 볼 수 있다.
+
+```
+$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#   new file: README
+#
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#
+#   modified: benchmarks.rb
+#
+```
+
+git diff 명령을 실행하면 수정했지만 아직 staged 상태가 아닌 파일으 ㄹ비교해 볼 수 있다.
+
+```
+$ git diff
+diff --git a/benchmarks.rb b/benchmarks.rb
+index 3cb747f..da65585 100644
+--- a/benchmarks.rb
+--- b/benchmarks.rb
+@@ -36,6 +36,10 @@ def main
+           @commit.parents[0].parents[0].parents[0]
+         end
+
++        run_cod(x, 'commits 1') do
++          git.commits.size
++        end
++
+         run_code(x, 'commits 2') do
+           log = git.commits('master', 15)
+           log.size
+```
+
+이 명령은 워킹 디렉터리에 있는 것과 Staging Area에 있는 것을 비교한다. 그래서 아직 수정하고 아직 Stage하지 않은 것을 보여준다.
+
+꼭 잊지 말아야 할 것이 있는데 git diff 명령은 마지막으로 커밋한 후에 수정한 것을 보여주지 않는다. git diff는 Unstaged 상태인 것들만 보여준다.
+
+benchmarks.rb 파일을 Stage한 후에 다시 수정해도 git diff 명령을 사용할 수 있다. 이때는 Staged 상태인 것과 Unstaged 상태인 것을 비교한다.
+
+```
+$ git add benchmarks.rb
+$ echo '# test line' >> benchmarks.rb
+$ git status
+#
+# Changes to be committed:
+#
+#   modified: benchmarks.rb
+#
+# Changed but not updated:
+#
+#   modified: benchmarks.rb
+#
+```
+
+git diff 명령으로 Unstaged 상태인 변경 부분을 확인해 볼 수 있다.
+
+```
+$ git diff
+diff --git a/benchmarks.rb b/benchmarks.rb
+index 445e28..86b2f7c 100644
+--- a/benchmarks.rb
++++ b/benchmarks.rb
+@@ -127,3 +127,4 @@ end
+ main()
+
+ ##pp Grit::GitRuby.cache_client.stats
++# test line
+```
+
+Staged 상태인 파일은 git diff --cached 옵션으로 확인한다.
+
+```
+$ git diff --cached
+diff --git a/benchmarks.r b/benchmarks.rb
+index 3cb747f..e445e28 100644
+--- a/benchmarks.rb
++++ b/benchmarks.rb
+@@ -36,6 +36,10 @@ def main
+          @commit.parents[0].parents[0].parents[0]
+        end
+
++        run_code(x, 'commits 1') do
++          git.commits.size
++        end
++
+        run_code(x, 'commits 2') do
+          log = git.commits('master', 15)
+          log.size
+```
 
