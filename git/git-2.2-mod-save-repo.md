@@ -297,3 +297,25 @@ create mode 100644 README
 
 * Git은 Staging Area에 속한 스냅샷을 커밋한다는 것을 기억해야 한다.
 
+
+#### Staging Area 생략하기
+
+git commit 명령을 실행할 때 -a 옵션을 추가하면 Git은 Tracked 상태의 파일을 자동으로 Staging Area에 넣는다.<br/>
+그래서 git add 명령을 실행하는 수고를 덜 수 있다.
+
+```
+$ git status
+# On branch master
+# 
+# Changed but not update:
+#
+#   modified:  benchmarks.rb
+#
+$ git commit -a -m 'added new benchmarks'
+[master 83e38c7] added new benchmarks
+ 1 files changed, 5 insertions(+), 0 deletions(-)
+```
+
+이 예제에서는 커밋하기 전에 git add 명령으로 benchmarks.rb 파일을 추가하지 않았다는 점을 눈여겨보자.
+
+
