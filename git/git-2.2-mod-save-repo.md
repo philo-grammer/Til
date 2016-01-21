@@ -297,7 +297,7 @@ create mode 100644 README
 
 * Git은 Staging Area에 속한 스냅샷을 커밋한다는 것을 기억해야 한다.
 
-
+<br/>
 #### Staging Area 생략하기
 
 git commit 명령을 실행할 때 -a 옵션을 추가하면 Git은 Tracked 상태의 파일을 자동으로 Staging Area에 넣는다.<br/>
@@ -317,5 +317,62 @@ $ git commit -a -m 'added new benchmarks'
 ```
 
 이 예제에서는 커밋하기 전에 git add 명령으로 benchmarks.rb 파일을 추가하지 않았다는 점을 눈여겨보자.
+
+<br/>
+#### 파일을 삭제하기
+
+Git에서 파일을 제거하려면 git rm 명령으로 Tracked 상태의 파일을 삭제한 후에(정확하게는 Staging Area에서 삭제하는 것) 커밋해야 한다.<br/>
+이 명령은 워킹 디렉터리에 있는 파일도 삭제하기 때문에 실제로 지워진다.
+
+만약 Git 없이 그냥 파일을 삭제하고 git status 명령으로 상태를 확인하면 Changed but not updated(즉, Unstaged)에 속한다는 것을 확인할 수 있다.
+
+```
+$ rm grit.gemspec
+$ git status
+# On branch master
+#
+# Changed but not updated:
+#   (use "git add/rm <file>..." to update what will be committed)
+#
+#      deleted:  grit.gemspec
+#
+```
+
+그리고 git rm 명령을 실행하면 삭제한 파일은 staged 상태가 된다.
+
+```
+$ git rm grit.gemspec
+rm 'grit.gemspec'
+$ git status
+# On branch master
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#      deleted:  grit.gemspec
+#
+```
+
+커밋하면 파일은 삭제되고 Git은 이 파일은 더는 추적하지 않는다.
+
+또 Staging Area에서만 제거하고 워킹 디렉터리에 있는 파일은 지우지 않고 남겨둘 수 있다. 이것은 .gitignore 파일에 추가하는 것을 빼먹었거나 대용량 로그 파일이나 컴파일된 파일인 .a 파일 같은 것을 실수로 추가했을 때 쓴다. --cached 옵션을 사용하여 명령을 실행한다.
+
+```
+$ git rm --cached readme.txt
+```
+
+여러 개의 파일이나 디렉터리를 한꺼번에 삭제할 수도 있다. (file-glob 사용)
+
+```
+$ git rm log/\*.log
+```
+
+\* 앞에 \을 사용한 것을 기억하자. 파일명 확장 기능은 셸에만 있는 것이 아니라 Git 자체에도 있기 때문에 필요하다. 이 명령은 log/ 디렉터리에 있는 .log 파일을 모두 삭제한다. 아래의 예제처럼 할 수도 있다.
+
+```
+$ git rm \*~
+```
+
+이 명령은 ~로 끝나는 파일을 모두 삭제한다.
 
 
