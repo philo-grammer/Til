@@ -375,4 +375,36 @@ $ git rm \*~
 
 이 명령은 ~로 끝나는 파일을 모두 삭제한다.
 
+<br/>
+#### 파일 이름 변경하기
+
+Git은 파일 이름이 변경됐다는 별도의 정보를 저장하지 않는다.<br/>
+파일의 이름이 변경된 것을 Git이 어떻게 알아내는지 살펴보자.
+
+아래와 같이 명령을 실행하고 Git 상태를 확인해보면 Git은 이름이 바뀐 사실을 알고 있다.
+
+```
+$ git mv README.txt README
+$ git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#      renamed:  README.txt -> README
+#
+```
+
+사실 git mv 명령은 아래 명령어들을 수행한 것과 완전히 똑같다.<br/>
+일종의 단축 명령어인 것이다.
+
+```
+$ mv README.txt README
+$ git rm README.txt
+$ git add README
+```
+
+중요한 것은 이름을 변경하고 나서 꼭 rm/add 명령을 실행해야 한다는 것뿐이다.
+
 
