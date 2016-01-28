@@ -22,7 +22,8 @@ $ git commit --amend
 <br/>
 #### 파일 상태를 Unstaged로 변경하기
 
-예를 들어 파일을 두 개 수정하고서 따로따로 커밋하려고 했지만, 실수로 git add * 라고 실행해 버렸다. 두파일 모두 Staging Area에 들어 있다. 이제 둘 중 하나를 어떻게 꺼낼까?
+예를 들어 파일을 두 개 수정하고서 따로따로 커밋하려고 했지만, 실수로 git add * 라고 실행해 버렸다.<br/>
+두파일 모두 Staging Area에 들어 있다. 이제 둘 중 하나를 어떻게 꺼낼까?<br/>
 우선 git status 명령으로 확인해보자.
 
 ```
@@ -58,5 +59,26 @@ $ git status
 ```
 
 이제 benchmarks.rb 파일이 Unstage 상태가 됐다.
+
+
+<br/>
+#### Modified 파일 되돌리기
+
+어떻게 해야 benchmarks.rb 파일을 수정하고 나서 다시 되돌릴 수 있을까?<br/>
+바로 위에 있는 예제에서 Unstaged 부분에서 알려주는대로 해보자.
+
+```
+$ git checkout -- benchmarks.rb
+$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#      modified:  README.txt
+#
+```
+
+정상적으로 복원되었지만, 이 명령은 꽤 위험한 명령이다.<br/>
+수정 이전의 파일로 덮어썼기 때문에 수정했던 내용은 전부 사라진다. 수정한 내용이 진짜 마음에 들지 않을 때에만 사용하자.
 
 
