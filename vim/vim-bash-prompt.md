@@ -1,5 +1,7 @@
 ## bash 프롬프트에 Git 상태 표시
 
+* 아래 스크립트는 [ahastudio](https://github.com/ahastudio) 님께서 작성한 것 입니다.
+
 #### bash_profile 파일에 아래 내용을 추가
 
 $ vi ~/.bash_profile
