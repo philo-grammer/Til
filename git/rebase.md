@@ -14,3 +14,13 @@
 	* 하나로 합칠 commit message 도 수정 가능
 4. git push origin [branch name] -f
 
+## Git 작업브랜치 --> master 로 Rebase 한 후 Pull Request
+1. git checkout -b [my branch name] [remote name]/[main branch name]
+2. git fetch [remote name]
+3. git rebase [remote name]/[main brnach name]
+4. git add .
+5. git commit
+6. git push [remote name] [my branch name]
+7. Pull Request
+8. Merge!!
+ 
