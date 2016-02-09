@@ -20,5 +20,9 @@
 
 * $ git pull (= fetch + merge)
 
+<br/>
+## Git Reset (삭제한 파일 복구하기)
+
+* $ git reset --hard HEAD
 
 
