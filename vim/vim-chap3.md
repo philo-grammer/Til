@@ -31,3 +31,42 @@
 |sw=value (shiftwidth) |블록 이동시 열의 너비입니다.|
 |tw=value(textwidth)   |편집할 화면의 열 길이를 정합니다.(0이면 비활성화)|
 
+<br/>
+## 3.2 옵션과 색상 테마 저장하기(vim 설정 파일)
+
+#### .vimrc 파일에 넣을 내용
+
+```
+" vim runtime configuration file
+set ai cindent
+set ts=4 sw=4
+"
+```
+
+설정 파일의 내용은 Vim에서 강제로 불러오지 않는 한 시작할 때 한 번만 읽힙니다. 그러므로 .vimrc 파일을 변경한 후 적용하려면 Vim을 종료하고 다시 시작해야 합니다.
+
+#### syntax 명령어
+
+|명령어         |설명|
+|:--------------|:---|
+|:syntax enable |문법 표시를 사용합니다.|
+|:syntax clear  |문법 표시를 사용하지 않습니다.|
+
+#### colorscheme 명령어
+
+|명령어               |설명|
+|:--------------------|:---|
+|:colorcheme (scheme) |(scheme) 색상을 사용합니다.|
+
+#### .vimrc 파일에 syntax와 colorscheme(colo) 추가
+
+```
+" vim runtime configuration file
+set ai cindent
+set ts=4 sw=4
+syntax enable
+colo shine
+"
+```
+
+
