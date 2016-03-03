@@ -61,4 +61,34 @@
 |c{motion} |{motion}만큼 변경(삭제 후 입력 모드로 전환)|
 
 
+<br/>
+## 6.3 약어 매크로
+
+#### 약어 기능을 사용하기 위한 .vimrc의 설정
+
+* '내멜'이라고 입력하면 sunyzero@gmail.com이 입력되게 하고 싶다.
+* 'prjsrc'라고 입력하면 /export/2/local/pjR2/mds/1.294/src가 입력되게 하고 싶다.
+
+```
+ab 내멜 sunyzero@gmail.com
+ab Prjsrc /export/2/local/pjR2/mds/1.294/src
+```
+
+#### 약어의 주요 기능(도움말의 abbreviation 참고)
+
+|명령어          |설명 |
+|:---------------|:----|
+|:ab [lhs]       |현재 설정된 모든 약어 목록을 출력합니다.<br/>lhs에 약어를 지정하면 해당 약어의 정보만 출력합니다.|
+|:ab {lhs} {rhs} |약어 lhs를 rhs로 설정합니다.|
+|:unab {lhs}     |약어 lhs를 해제합니다.|
+|:abclear        |설정된 모든 약어를 해제합니다.|
+|:la {lhs} {rhs} |ab와 기능은 같지만 입력 모드에서만 작동합니다.|
+|:ca {lhs} {rhs} |ab와 기능은 같지만 명령행 모드에서만 작동합니다.|
+
+#### 한글 자판에서 오타를 방지하는 명령행 모드 약어 매크로
+
+```
+ca ㅈ w
+ca ㅈㅂ wq
+```
 
