@@ -6,6 +6,8 @@
 
 직전에 작성했던 commit 메시지를 수정하고 싶을 때는 git commit --amend 명령어를 사용합니다.
 
+수정후 push를 하기 위해서는 `$ git push origin [branch name] -f`이라는 명령어를 사용해야 합니다.
+
 ### git rebase -i : 변경 내역 조작
 
 ex) $ git rebase -i HEAD~2
