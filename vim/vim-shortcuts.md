@@ -17,6 +17,15 @@
 
 h, j, k, l - 좌,하,상,우 커서이동
 
+|단축키 |설명 |
+|:------|:----|
+|i      |현재 커서 위치에 Insert 하기|
+|I      |현재 줄 맨 앞에 Insert 하기|
+|a      |현재 커서 다음칸에 Insert 하기|
+|A      |현재 줄 맨뒤에 Insert 하기|
+|o      |윗줄에 Insert 하기|
+|O      |아랫줄에 Insert 하기|
+
 i - 현재 커서 위치에 Insert 하기<br/>
 I - 현재 줄 맨앞에 Insert 하기<br/>
 a - 현재 커서 다음칸에 Insert 하기<br/>
