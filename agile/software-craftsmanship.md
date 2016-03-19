@@ -19,3 +19,5 @@ but also **productive partnerships**
 That is, pursuit of the items on the left we have found the<br/>
 items on the right to be indispensable.
 
+<br/>
+### 출처 : [http://manifesto.softwarecraftsmanship.org/](http://manifesto.softwarecraftsmanship.org/)
