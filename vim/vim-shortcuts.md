@@ -15,7 +15,13 @@
 ### Outsider's Vim 단축키 정리
 * 참고 : [Outsider's Dev Story](https://blog.outsider.ne.kr/540)
 
-h, j, k, l - 좌,하,상,우 커서이동
+|커서이동키 |방향 |
+|:----------|:----|
+|h          |좌|
+|j          |하|
+|k          |상|
+|l          |우|
+
 
 |단축키 |설명 |
 |:------|:----|
