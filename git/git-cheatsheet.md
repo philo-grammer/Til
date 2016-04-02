@@ -58,7 +58,12 @@ git branch
 ## Git Basic
 
 master : default branch
+
 origin : default remote branch
+
 HEAD : current branch
+
 HEAD^ : HEAD's parent
+
 HEAD~3 : HEAD's parent's parent's parent
+
